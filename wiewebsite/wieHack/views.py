@@ -27,12 +27,12 @@ def Uregister(request):
         # request.session["teamsize"]=request.POST.get('teamsize')
 
         teamname=request.POST.get('teamname')
-        domains=request.POST.get('domains')
+        domain_info=request.POST.get('domains')
         teamsize=request.POST.get('teamsize')
 
 
         print(teamname)
-        print(domains)
+        print(domain_info)
         print(teamsize)
 
         # request.session["leader_name"]=request.POST.get('leader_name')
@@ -67,7 +67,7 @@ def Uregister(request):
         request.session["clg3"]=request.POST.get('clg3')
         print(request.FILES)
         abstractPdf = request.FILES['Abstract']
-        extra = domains(M1MailId = leader_mail,domainName=domains,abstract=abstractPdf)
+        extra = domains(M1MailId = leader_mail,domainName=domain_info,abstract=abstractPdf)
         extra.save()
     else:
         return render(request,'registration.html')
